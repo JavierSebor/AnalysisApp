@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data tools:ignore="ExtraText">
+        <variable
+            name="mAurumItem"
+            type="com.mundiaurum.analysisapp.domain.MAurumItem" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+     <TextView
+        android:id="@+id/expandedListItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{mAurumItem.idPieza}"
+        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <TextView
+        android:id="@+id/metalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{mAurumItem.strPiezaMetalReal}"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/expandedListItem"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toTopOf="@+id/expandedListItem" />
+
+    <TextView
+        android:id="@+id/purityValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{mAurumItem.intPiezaPurezaReal}"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/metalValue"
+        app:layout_constraintStart_toStartOf="@+id/guideline9"
+        app:layout_constraintTop_toTopOf="@+id/metalValue" />
+
+    <TextView
+        android:id="@+id/weightValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{mAurumItem.intPiezaPesoReal}"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/purityValue"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toTopOf="@+id/purityValue" />
+
+    <TextView
+        android:id="@+id/priceValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{mAurumItem.intPiezaPrecioFinal}"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/weightValue"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toTopOf="@+id/weightValue" />
+
+    <TextView
+        android:id="@+id/textViewItemEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/edit"
+        android:textColor="#C20A10"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="@+id/priceValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/priceValue" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.45" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.32" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.21" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

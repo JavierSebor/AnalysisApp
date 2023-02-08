@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data tools:ignore="ExtraText">
+        <variable
+            name="viewModel"
+            type="com.mundiaurum.analysisapp.MAurumItemsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp"
+        tools:context=".MAurumItemDetailsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            tools:context=".MAurumItemDetailsFragment">
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/buttonsaveitem"
+                android:enabled="false"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:fillViewport="true"
+            tools:ignore="MissingClass">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/generalData"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/blue"
+                            android:paddingLeft="25dp"
+                            android:paddingTop="16dp"
+                            android:paddingRight="16dp"
+                            android:paddingBottom="16dp"
+                            android:text="@string/general_data"
+                            android:textColor="@color/white"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/imageButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="0dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            app:layout_constraintBottom_toBottomOf="@+id/generalData"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/expandableLayout"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/generalData"
+                            tools:context=".MAurumItemDetailsFragment">
+
+                            <TextView
+                                android:id="@+id/packageLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="25dp"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/package_id"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/itemIdValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:text="@{viewModel.MAurumItemById.idRecogida}"
+                                app:layout_constraintEnd_toEndOf="@id/guideline22"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/dateLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/date"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintStart_toStartOf="@id/guideline23"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/dateValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:text="@{viewModel.MAurumItemById.dateFechaRecogida}"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <TextView
+                                android:id="@+id/estimatedMetalLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="25dp"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/estim_metal"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/packageLabel" />
+
+                            <TextView
+                                android:id="@+id/estimatedMetalValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:text="@{viewModel.MAurumItemById.strPiezaMetal}"
+                                app:layout_constraintEnd_toEndOf="@id/guideline22"
+                                app:layout_constraintTop_toBottomOf="@id/packageLabel" />
+
+                            <TextView
+                                android:id="@+id/estimPurityLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/estim_purity"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintStart_toStartOf="@id/guideline23"
+                                app:layout_constraintTop_toBottomOf="@id/packageLabel" />
+
+                            <TextView
+                                android:id="@+id/estimPurityValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:text="@{viewModel.MAurumItemById.strPiezaPureza}"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/packageLabel" />
+
+
+                            <TextView
+                                android:id="@+id/estimatedWeight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="25dp"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/estim_weight"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/estimatedMetalLabel" />
+
+                            <TextView
+                                android:id="@+id/estimWeightValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="8dp"
+                                android:text="@{viewModel.MAurumItemById.intPiezaPeso}"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintEnd_toStartOf="@id/guideline22"
+                                app:layout_constraintTop_toBottomOf="@id/estimatedMetalLabel" />
+
+
+                            <TextView
+                                android:id="@+id/picture1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="25dp"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/picture_1"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/estimatedWeight" />
+
+                            <TextView
+                                android:id="@+id/picture1Value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="8dp"
+                                android:textStyle="italic"
+                                android:textColor="@color/blue"
+                                android:text="@{viewModel.MAurumItemById.strPiezaFoto1}"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintStart_toStartOf="@id/guideline24"
+                                app:layout_constraintTop_toBottomOf="@id/estimatedWeight" />
+
+                            <TextView
+                                android:id="@+id/picture2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="25dp"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/picture_2"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/picture1" />
+
+                            <TextView
+                                android:id="@+id/picture2Value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="8dp"
+                                android:textStyle="italic"
+                                android:textColor="@color/blue"
+                                android:text="@{viewModel.MAurumItemById.strPiezaFoto2}"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintStart_toStartOf="@id/guideline24"
+                                app:layout_constraintTop_toBottomOf="@id/picture1" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline22"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.45" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline23"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.60" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline24"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.3" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:padding="8dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/inputData"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/blue"
+                            android:paddingLeft="25dp"
+                            android:paddingTop="16dp"
+                            android:paddingRight="16dp"
+                            android:paddingBottom="16dp"
+                            android:text="@string/input_data"
+                            android:textColor="@color/white"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="RtlHardcoded" />
+
+                        <ImageView
+                            android:id="@+id/imageButtonInputData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="0dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            app:layout_constraintBottom_toBottomOf="@+id/inputData"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24"
+                            android:contentDescription="TODO" />
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/expandableLayoutInputData"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/inputData"
+                            tools:context=".MAurumItemDetailsFragment">
+
+                            <TextView
+                                android:id="@+id/metalRealLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="25dp"
+                                android:text="@string/metal_real"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline258"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <Spinner
+                                android:id="@+id/metalRealValue"
+                                android:layout_width="60dp"
+                                android:layout_height="30dp"
+                                android:textAlignment="textEnd"
+                                android:textSize="12dp"
+                                android:background="@color/gray_light"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline258"
+                                app:layout_constraintEnd_toEndOf="@id/guideline30"
+                                app:layout_constraintTop_toTopOf="parent"
+
+                                android:theme="@style/MAurumAppSpinner"/>
+
+                            <TextView
+                                android:id="@+id/purityRealLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="25dp"
+                                android:gravity="center"
+                                android:text="@string/purity_real"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline259"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/guideline258" />
+
+                            <EditText
+                                android:id="@+id/purityRealValue"
+                                android:layout_width="60dp"
+                                android:layout_height="30dp"
+                                android:background="@color/gray_light"
+                                android:inputType="number"
+                                android:minHeight="18dp"
+                                android:text="@{viewModel.MAurumItemById.intPiezaPurezaReal}"
+                                android:textAlignment="textEnd"
+                                android:textSize="14dp"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline259"
+                                app:layout_constraintEnd_toEndOf="@id/guideline30"
+                                app:layout_constraintTop_toTopOf="@+id/guideline258" />
+
+                            <TextView
+                                android:id="@+id/weightRealLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="25dp"
+                                android:gravity="center"
+                                android:text="@string/weight_real"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline260"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/guideline259" />
+
+                            <EditText
+                                android:id="@+id/weightRealValue"
+                                android:layout_width="60dp"
+                                android:layout_height="30dp"
+                                android:background="@color/gray_light"
+                                android:inputType="numberDecimal"
+                                android:text="@{viewModel.MAurumItemById.intPiezaPesoReal}"
+                                android:textAlignment="textEnd"
+                                android:textSize="14dp"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline260"
+                                app:layout_constraintEnd_toEndOf="@id/guideline30"
+                                app:layout_constraintTop_toTopOf="@+id/guideline259" />
+
+                            <TextView
+                                android:id="@+id/commentLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="25dp"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/comments"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/guideline260" />
+
+                            <EditText
+                                android:id="@+id/commentValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="75dp"
+                                android:layout_marginStart="25dp"
+                                android:layout_marginEnd="25dp"
+                                android:background="@color/gray_light"
+                                android:gravity="top"
+                                android:text="@{viewModel.MAurumItemById.strPiezaDescripcionReal}"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintStart_toStartOf="@id/guideline260"
+                                app:layout_constraintTop_toBottomOf="@id/commentLabel" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline30"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_begin="229dp" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline258"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                app:layout_constraintGuide_percent="0.15" />
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline259"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                app:layout_constraintGuide_percent="0.30" />
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline260"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                app:layout_constraintGuide_percent="0.45" />
+
+                            <TextView
+                                android:id="@+id/itemPriceValue"
+                                android:layout_width="100dp"
+                                android:layout_height="30dp"
+                                android:text="No value"
+                                android:gravity="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline260"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/purityRealValue"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:padding="8dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/unboxing"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/blue"
+                            android:paddingLeft="25dp"
+                            android:paddingTop="16dp"
+                            android:paddingRight="16dp"
+                            android:paddingBottom="16dp"
+                            android:text="@string/analysis_files"
+                            android:textColor="@color/white"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/imageButtonUnboxing"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="0dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            app:layout_constraintBottom_toBottomOf="@+id/unboxing"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24" />
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/expandableLayoutUnboxing"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/unboxing"
+                            tools:context=".MAurumItemDetailsFragment">
+
+                            <Button
+                                android:id="@+id/newImageButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/new_image_button"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/newVideoButton"/>
+
+                            <Button
+                                android:id="@+id/newVideoButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="NEW VIDEO"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/newImageButton"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                            <ListView
+                                android:id="@+id/listViewAnalysisFiles"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/newImageButton" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

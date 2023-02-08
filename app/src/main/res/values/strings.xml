@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">AnalysisApp</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Pending Packages</string>
+    <string name="second_fragment_label">MAurumItem Detail Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="image_viewer_fragment">Image Viewer Fragment</string>
+    <string name="pack_and_item_id">Pack\nItem Id</string>
+    <string name="metal">Metal</string>
+    <string name="purity">Purity</string>
+    <string name="weight">Weight</string>
+    <string name="price">Price</string>
+    <string name="send_proposal">Send\nProposal</string>
+    <string name="item_id">Item Id:</string>
+    <string name="general_data">General Data</string>
+    <string name="package_id">Package Id:</string>
+    <string name="date">Date:</string>
+    <string name="estim_metal">Estim. Metal:</string>
+    <string name="estim_purity">Estim. purity:</string>
+    <string name="estim_weight">Estim. Weight:</string>
+    <string name="picture_1">Picture 1:</string>
+    <string name="picture_2">Picture 2:</string>
+    <string name="input_data">Input Data</string>
+    <string name="metal_real">Metal real:</string>
+    <string name="purity_real">Purity:</string>
+    <string name="weight_real">Weight real:</string>
+    <string name="comments">Comments:</string>
+    <string name="edit">EDIT</string>
+    <string name="analysis_files">Analysis Files</string>
+    <string name="buttonsaveitem">SAVE</string>
+    <string name="video_viewer_fragment">Video Viewer Fragment</string>
+    <string name="new_image_button">NEW IMAGE</string>
+    <string-array name = "metals">
+        <item></item>
+        <item>Au</item>
+        <item>Ag</item>
+        <item>Pt</item>
+        <item>Pd</item>
+    </string-array>
+</resources>

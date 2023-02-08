@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MAurumAppSpinner">
+        <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+        <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItem</item>
+    </style>
+
+    <style name="SpinnerItem">
+        <item name="android:gravity">right|center_vertical</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:textSize">10dp</item>
+
+    </style>
+
+    <style name="SpinnerDropDownItem">
+        <item name="android:gravity">right|center_vertical</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:background">@color/gray</item>
+    </style>
+
+
+
+</resources>
