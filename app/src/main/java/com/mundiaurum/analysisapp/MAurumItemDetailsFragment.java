@@ -203,7 +203,7 @@ public class MAurumItemDetailsFragment extends Fragment implements AdapterView.O
                     dirtyWeight = true;
                 }
                 checkDirty();
-                if(!charSequence.toString().matches("^\\d{1,3}(\\.\\d{0,2})?$")){
+                if(!charSequence.toString().matches("^\\d{1,4}(\\.\\d{0,2})?$")){
                     binding.weightRealValue.setBackgroundResource(R.color.red);
                     weightDataValid = false;
                 }
